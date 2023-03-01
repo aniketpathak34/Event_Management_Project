@@ -1,0 +1,257 @@
+{% extends 'hpevent/base.html' %}
+
+{% load static  %}
+
+{% load embed_video_tags %}
+{% block content %}
+
+
+<!-- ======= logo Section ======= -->
+<section class="logo-section">
+  <div class="video-container">
+    <div class="color-overly"></div>
+    <video autoplay loop class='video-bg' muted>
+      <source src="{% static 'videos/videoTwo.mp4' %}" type="">
+    </video>
+  </div>
+
+
+</section>
+
+<!-- ======= logo section end ======= -->
+
+
+
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+  <div class="hero-container">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url('/static/images/slide/slide1.jpeg');">
+          <div class="carousel-container">
+            <div class="carousel-content container">
+              <h2 class="animated fadeInDown">Welcome to <span>HP Event Management Company</span></h2>
+
+              <p class="animated fadeInUp">Event management is the application of project management to the creation
+                and development of small and/or large-scale personal or corporate events such as festivals,
+                conferences, ceremonies, weddings, formal parties, concerts, or conventions.</p>
+              <a href="#about" class="btn-get-started animated fadeInUp scrollto">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url('/static/images/slide/slide2.jpeg');">
+          <div class="carousel-container">
+            <div class="carousel-content container">
+              <h2 class="animated fadeInDown">We Create You Celebrate</h2>
+              <p class="animated fadeInUp">Event management is the application of project management to the creation
+                and development of small and/or large-scale personal or corporate events such as festivals,
+                conferences, ceremonies, weddings, formal parties, concerts, or conventions.</p>
+              <a href="#about" class="btn-get-started animated fadeInUp scrollto">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image: url('/static/images/slide/slide3.jpeg');">
+          <div class="carousel-container">
+            <div class="carousel-content container">
+              <h2 class="animated fadeInDown">Our business is making memories</h2>
+              <p class="animated fadeInUp">Event management is the application of project management to the creation
+                and development of small and/or large-scale personal or corporate events such as festivals,
+                conferences, ceremonies, weddings, formal parties, concerts, or conventions.</p>
+              <a href="#about" class="btn-get-started animated fadeInUp scrollto">Read More</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon icofont-rounded-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon icofont-rounded-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+    </div>
+  </div>
+</section><!-- End Hero -->
+
+
+
+<!-- ======= Services Section ======= -->
+<section>
+  <div class="section-title services" id="services">
+    <h2>Services</h2>
+  </div>
+  <div class="container">
+
+
+    <div class="row">
+
+      {% for data in eventData %}
+      <div class="card col-lg-4 col-md-6">
+        <div class="single-feature mb-30">
+          <div class="title d-flex flex-row pb-20">
+            <img style="width: 12rem;" src="/media/{{ data.serviceImage }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{data.eventTitle}}</h5>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+</section><!-- End Services Section -->
+
+
+<main id="main">
+
+  <!-- ======= About Us Section ======= -->
+  <section >
+    <div class="section-title vgallery" id="vgallery">
+      <h2 class="mb-5 text-center">Video Gallery</h2>
+    </div>
+    <div class="container">
+
+
+      <div class="row">
+
+        {% for data in videodata %}
+        <div class=" mb-3 card col-lg-4 col-md-6 ms-1">
+          <div class="single-feature mb-30">
+            <div class="title d-flex flex-row pb-20">
+              {% video data.video %}
+
+            </div>
+
+            <h5 class="card-title text-center">{{data.eventName}}</h5>
+            <p class="card-text text-center">{{data.eventCaption}}</p>
+          </div>
+
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+    <div class="mx-auto text-center">
+      <a class="btn btn-primary " href="{% url 'videoGalleryone' %}" role="button">Video Gallery</a>
+    </div>
+    
+
+  </section><!-- End Services Section -->
+
+
+  <!-- ======= Counts Section ======= -->
+  <section class="counts section-bg" id="customers" class="team">
+    <div class="section-title">
+      <h2 class="mb-5 text-center">Our Happy Customers</h2>
+    </div>
+    <div class="container">
+
+
+      <div class="row">
+
+        {% for data in clientdata %}
+        <div class=" mb-3 card col-lg-4 col-md-6 ms-1">
+          <div class="single-feature mb-30">
+            <div class="title d-flex flex-row pb-20">
+              <div class="carousel-item active">
+                <img src=" /media/{{ data.eventImageOne }} " class="d-block w-100" alt="Image 1">
+              </div>
+
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title"> {{data.eventName}} </h5>
+              <h2 class="card-title"> {{data.eventDate}} </h2>
+              <p class="card-text">{{data.eventDescription}}</p>
+
+            </div>
+          </div>
+
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+  <div class="mx-auto text-center">
+    <a class="btn btn-primary " href="{% url 'galleryTemplate' %}" role="button">Photo Gallery</a>
+  </div>
+
+  </section><!-- End Counts Section -->
+
+  <!-- ======= Our Team Section ======= -->
+  <section id="team" class="team">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Our Team</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-4 sm-port" data-aos="fade-up" data-aos-delay="100">
+          <div class="member">
+            <div class="pic"><img src="static/images/team/team-2.jpg" class="img-fluid" alt=""></div>
+            <div class="member-info">
+              <h4>Harshal Puranik</h4>
+              <span>CEO</span>
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class=" col-sm-4 " data-aos="fade-up" data-aos-delay="200">
+          <div class="member">
+            <div class="pic"><img src="static/images/team/team-3.jpg" class="img-fluid" alt=""></div>
+            <div class="member-info">
+              <h4>Piyush Puranik</h4>
+              <span>MANAGING DIRECTOR </span>
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  </section><!-- End Our Team Section -->
+
+
+  <!-- ======= Contact Us Section ======= -->
+  <section id="contact" class="contact">
+
+  </section><!-- End Contact Us Section -->
+
+</main><!-- End #main -->
+
+
+{% endblock %}

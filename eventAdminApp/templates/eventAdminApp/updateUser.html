@@ -1,0 +1,52 @@
+{% extends 'eventAdminApp/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container w-50 p-3">
+    <form action="{{ editAdmin }}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputEmail1">Event Name</label>
+            <input type="text" class="form-control" name="eventName" placeholder="Enter a Event Name" value="{{mymember.eventName}}">
+
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Event Place</label>
+            <input type="text" class="form-control" name="eventPlace" placeholder="Event Place Name" value ="{{mymember.eventPlace}}">
+           
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Event Description</label>
+            <input type="text" class="form-control" name="eventDescription" placeholder="Enetr Happy Note For Event" value="{{mymember.eventDescription}}">
+          
+        </div>
+        <label for="exampleInputEmail1">Event Date</label>
+        <div class="datepicker date
+        input-group p-0 shadow-sm">
+           
+            <input  type="text" placeholder="Choose a date" name="eventDate" class="form-control py-4 px-4" value="{{mymember.eventDate}}"/>
+            <div class="input-group-append">
+                <span class="input-group-text px-4">
+                    <i class="fa fa-clock-o"></i>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Upload Event Related Image 1</label>
+            <input type="file" name="imgOne" class="form-control-file" value="{{mymember.eventImageOne}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Upload Event Related Image 2</label>
+            <input type="file" name="imgTwo" class="form-control-file" value="{{mymember.eventImageTwo}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Upload Event Related Image 3</label>
+            <input type="file" name="imgThree" class="form-control-file" value="{{mymember.eventImageThree}}">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <input type="text" name="imgThree" class="form-control-file" value="{{id}}">
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% load static %}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>HPevents.in | Event Planner | Wedding Planner | Corporate Event Management Planner</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="/static/images/fevicon.png" rel="icon">
+    <link href="/static/images/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/static/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/vendors/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/static/vendors/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/static/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/static/vendors/venobox/venobox.css" rel="stylesheet">
+    <link href="/static/vendors/aos/aos.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="/static/css/style.css" rel="stylesheet">
+
+<div class="container mt-5">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-outline mb-4">
+            <input name="username" type="username" id="form2Example1" class="form-control"/>
+            <label class="form-label" for="form2Example1">Username</label>
+        </div>
+    
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <input name="password" type="password" id="form2Example2" class="form-control" />
+            <label class="form-label" for="form2Example2">Password</label>
+        </div>
+    
+        <!-- 2 column grid layout for inline styling -->
+    
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
+    
+        <!-- Register buttons -->
+        
+
+
+
+
+    <!-- Vendor JS Files -->
+    <script src="/static/js/prefixfree.js"></script>
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/static/vendor/jquery-sticky/jquery.sticky.js"></script>
+    <script src="/static/vendor/venobox/venobox.min.js"></script>
+    <script src="/static/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/static/vendor/counterup/counterup.min.js"></script>
+    <script src="/static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/static/vendor/aos/aos.js"></script>

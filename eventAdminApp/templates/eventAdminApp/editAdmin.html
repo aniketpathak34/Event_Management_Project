@@ -1,0 +1,117 @@
+{% extends 'eventAdminApp/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'editAdmin' %}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+        </ol>
+    </nav>
+</div>
+
+
+<div class="container">
+    <div class="card-header">
+        <h1 class="text-center alert alert-info"> Your All Data That Into Gallery</h1>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered tabel-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Event Name</th>
+                    <th>Event Place</th>
+                    <th>Event Description</th>
+                    <th>Event Date</th>
+                    <th>Event Image 1</th>
+                    <th>Event Image 2</th>
+                    <th>Event Image 3</th>
+                    <th>Edit Your Post</th>
+                    <th>Delete Your Post</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in eventData %}
+                <tr>
+                    <td>{{event.id}}</td>
+                    <td>{{ event.eventName }}</td>
+                    <td>{{ event.eventPlace }}</td>
+                    <td>{{ event.eventDescription }}</td>
+                    <td>{{ event.eventDate }}</td>
+                    <td><img src=" /media/{{ event.eventImageOne }} " class="d-block w-100" alt="Image 1"></td>
+                    <td><img src=" /media/{{ event.eventImageTwo }} " class="d-block w-100" alt="Image 1"></td>
+                    <td><img src=" /media/{{ event.eventImageThree }} " class="d-block w-100" alt="Image 1"></td>
+
+
+                    <td> <a href="" class="btn btn-primary a-btn-slide-text">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            <span><strong>Edit</strong></span>
+                        </a></td>
+
+                    <td>
+                        <form action="{% url 'deleteDataadmin' event.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-danger" value="Delete">
+                        </form>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="card-header">
+        <h1 class="text-center alert alert-info"> Your All Data In Video Gallery</h1>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered tabel-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Video Title</th>
+                    <th>Video Description</th>
+                    <th>Video Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in VIdata %}
+                <tr>
+                    <td>{{data.id}}</td>
+                    <td>{{ data.eventName }}</td>
+                    <td>{{ data.eventCaption }}</td>
+                    <td>{{ data.video }}</td>
+                    <td> <a href="" class="btn btn-primary a-btn-slide-text">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            <span><strong>Edit</strong></span>
+                        </a></td>
+
+                    <td>
+                        <form action="{% url 'deleteV' data.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-danger" value="Delete">
+                        </form>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+{% endblock %}

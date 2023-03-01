@@ -1,0 +1,30 @@
+{% extends 'eventAdminApp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container w-50 p-3">
+    <form action="" method="post" >
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputEmail1">Video Title</label>
+            <input type="text" class="form-control" name="vtitle" placeholder="Enter a Video Title Name">
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleInputEmail1">Video Description</label>
+            <input type="text" class="form-control" name="vdesc"
+                placeholder="Enter What Video Containing">
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleInputEmail1">Video LINK</label>
+            <input type="url" class="form-control" name="vlink"
+                placeholder="Enter Video Link Here">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+      
+
+{% endblock %}
