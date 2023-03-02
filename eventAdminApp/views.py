@@ -121,9 +121,7 @@ def vInput(request):
         temp.eventCaption = request.POST.get('vdesc')
         temp.video = request.POST.get('vlink')   
         temp.save()
-        messages.success(request, "your data is added to database")
 
-        
         return render(request, 'eventAdminApp/vinput.html')
 
     return render(request, 'eventAdminApp/vinput.html')
