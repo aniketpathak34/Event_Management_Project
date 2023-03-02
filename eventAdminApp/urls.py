@@ -16,7 +16,7 @@ urlpatterns = [
 
     
     #user Urls
-    path('', views.hpServices, name='hpServices'),
+    path('home/', views.hpServices, name='hpServices'),
     path('gallery/', views.galleryTemplate, name='galleryTemplate'),
     path('videos/', views.videoGallery, name='videoGalleryone'),
     path('contact/', views.hpEventContact, name='contactUs'),
